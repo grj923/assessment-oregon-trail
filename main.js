@@ -27,28 +27,34 @@ class Wagon {
 
   getAvailableSeatCount() {
     let seatsLeft = this.capacity;
-    if (seatsLeft > 0) {
-      seatsLeft = seatsLeft - this.passengers.length;
-      console.log(seatsLeft);
-      console.log(this.capacity);
-    }
+    seatsLeft = seatsLeft - this.passengers.length;
     return seatsLeft;
     //  Returns the number of empty seats, determined by the capacity set when the wagon was created,
     // subtracted by the number of passengers currently on board.
   }
   join(Traveler) {
-    this.passengers.push(Traveler.name);
-  }
-  //Adds the traveler to the wagon if there is space.
-  // If the wagon is already at maximum capacity, don't add them.
-
-  shouldQuarantine() {
-    if (Traveler.isHealthy == false) {
-      return true;
+    if (this.passengers.length < this.capacity) {
+      this.passengers.push(Traveler.name);
     }
-    // return true if one person is unhealthy
+    //Adds the traveler to the wagon if there is space.
+    // If the wagon is already at maximum capacity, don't add them.
+  }
+  shouldQuarantine() {
+    if (this.isHealthy == false) {
+    }
+    return true; // return true if one person is unhealthy
   }
   totalFood() {
+    for (let i = 0; i > this.passengers.length; i++) {}
+    console.log(this.passengers[0]);
+    console.log(this.passengers[1]);
+    console.log(henrietta.food);
+    console.log(juan.food);
+    console.log(this.passengers);
+    let foodInWagon = 0;
+    foodInWagon = henrietta.food + juan.food;
+    return foodInWagon;
+
     // Returns the total amount of food among all passengers in the wagon.
   }
 }
